@@ -1,8 +1,8 @@
-# Polygon ID MDI POC
+# Decentralised ID: MDI Experiment on Polygon ID
 
-A proof of concept for issuing and verifying a custom **self-sovereign identity credential** — "MDI student" — using [Polygon ID](https://polygonid.com/) (now [Privado ID](https://www.privado.id/)), zero-knowledge proofs, and the Polygon Mumbai testnet.
+An experiment in issuing and verifying a custom **self-sovereign identity credential** — "MDI student" — using [Polygon ID](https://polygonid.com/) (now [Privado ID](https://www.privado.id/)), decentralized identifiers (DIDs), zero-knowledge proofs, and the Polygon Mumbai testnet.
 
-The POC issues a verifiable credential asserting `student: true` to a holder's Polygon ID DID, stores it in the Polygon ID mobile wallet, and verifies it via a zero-knowledge proof — without ever revealing the holder's private key or any data beyond what the verifier explicitly requested.
+The experiment issues a verifiable credential asserting `student: true` to a holder's Polygon ID DID, stores it in the Polygon ID mobile wallet, and verifies it via a zero-knowledge proof — without ever revealing the holder's private key or any data beyond what the verifier explicitly requested.
 
 ## What's in this repo
 
@@ -13,7 +13,7 @@ The POC issues a verifiable credential asserting `student: true` to a holder's P
 │   ├── MDI-student.schema.json    # JSON Schema for the "MDI student" verifiable credential
 │   └── MDI-student.jsonld         # JSON-LD context defining the custom `student` claim
 └── docs/
-    ├── setup-issuer-node.md       # How to stand up the Polygon ID issuer node used in this POC
+    ├── setup-issuer-node.md       # How to stand up the Polygon ID issuer node used in this experiment
     ├── ngrok-notes.md             # Exposing the local issuer node to the mobile wallet via ngrok
     └── auth-flow.md               # What the wallet/verifier actually do under the hood (ZK auth flow)
 ```
@@ -48,16 +48,16 @@ Follow [`docs/setup-issuer-node.md`](docs/setup-issuer-node.md) to stand up the 
 
 ## Status & known limitations
 
-This is a hackathon/exploration-stage POC, not production code:
+This is a hackathon/exploration-stage experiment, not production code:
 
 - Built against **Polygon Mumbai**, which was deprecated in 2024 in favor of **Polygon Amoy**. Network config, RPC URLs, and the identity state contract address need updating to reproduce this today — see the note in [`docs/auth-flow.md`](docs/auth-flow.md).
 - Relies on ngrok for public reachability, which is fine for a demo but not a deployment story.
-- No verifier application code is included here — this repo documents the issuer-side setup and the observed wallet/verifier protocol flow, based on the original POC's working notes and captured debug logs.
+- No verifier application code is included here — this repo documents the issuer-side setup and the observed wallet/verifier protocol flow, based on the original experiment's working notes and captured debug logs.
 - Polygon ID has since been rebranded to **Privado ID**; check [docs.privado.id](https://docs.privado.id/) for current tooling, as some URLs/tools referenced here (e.g. `push-staging.polygonid.com`) may have moved.
 
 ## Background reading
 
-The original POC working files (detailed write-up, config walkthroughs, enterprise overview deck, verifier reference PDF, and screenshots) are kept alongside this repo's source material for reference and can be added to `docs/` as needed.
+The original working files from this experiment (detailed write-up, config walkthroughs, enterprise overview deck, verifier reference PDF, and screenshots) are kept alongside this repo's source material for reference and can be added to `docs/` as needed.
 
 ## License
 
