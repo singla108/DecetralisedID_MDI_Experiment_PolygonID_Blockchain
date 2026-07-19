@@ -1,0 +1,6 @@
+.DS_Store
+.env
+.env-issuer
+.env-api
+*.log
+node_modules/
